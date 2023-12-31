@@ -9,13 +9,11 @@
 
   outputs = inputs@{ nixpkgs, home-manager, ... }: {
     nixosConfigurations = {
-    
-      networking.hostName = "Nix-sa-mere-Os";      
 
       nixos-dev = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./sys/dev.nix
+          ./sys/configuration.nix
 
           home-manager.nixosModules.home-manager
           {
