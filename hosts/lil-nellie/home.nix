@@ -6,7 +6,6 @@ in {
   imports =
     [ 
        "${md}/vim"
-       "${md}/audio"
     ];
 
 

@@ -12,7 +12,6 @@
 	rainbow
 	vim-gitgutter
     ];
-    settings = { syntax = true; };
     extraConfig = (builtins.readFile ./vimrc);
   };
 }
