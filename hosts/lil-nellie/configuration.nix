@@ -10,6 +10,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  networking.hostName = "lil-nellie"; 
   networking.networkmanager.enable = true;
 
   time.timeZone = "Europe/Paris";
@@ -28,7 +29,14 @@
     LC_TIME = "fr_FR.UTF-8";
   };
 
+  users.users.bcr = {
+    isNormalUser = true;
+    description = "CS2IsCommingSoon";
+    extraGroups = [ "audio"  "networkmanager" "wheel" ];
+  };
+
   services.xserver = {
+    enable = true;
     layout = "us";
     xkbVariant = "";
   };

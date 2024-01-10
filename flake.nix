@@ -10,17 +10,18 @@
   outputs = inputs@{ nixpkgs, home-manager, ... }: {
     nixosConfigurations = {
 
-      nixos-dev = nixpkgs.lib.nixosSystem {
+      lil-nellie = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
+
         modules = [
-          ./sys/configuration.nix
+          ./hosts/lil-nellie/configuration.nix
 
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
 
-            home-manager.users.lil-nellie = import ./users/lil-nellie.nix;
+            home-manager.users.lil-nellie = import ./hosts/lil-nellie/home.nix;
           }
         ];
       };
