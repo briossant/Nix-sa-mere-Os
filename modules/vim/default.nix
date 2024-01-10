@@ -1,13 +1,9 @@
 { config, pkgs, ... }:
 
 {
-environment.variables = { EDITOR = "vim"; };
-
-  environment.systemPackages = with pkgs; [
-    ((vim_configurable.override {  }).customize{
-      name = "vim";
-      vimrcConfig.packages.myplugins = with pkgs.vimPlugins; {
-        start = [ 
+     programs.vim = {
+    enable = true;
+    plugins = with pkgs.vimPlugins; [ 
 	vim-airline
 	coc-nvim 
 	vim-airline-themes
@@ -16,10 +12,9 @@ environment.variables = { EDITOR = "vim"; };
 	rainbow
 	vim-gitgutter
     ];
-      };
-      vimrcConfig.customRC = (builtins.readFile ./vimrc);
-    }
-  )];
+    settings = { syntax = true; };
+    extraConfig = (builtins.readFile ./vimrc);
+  };
 }
 
 
