@@ -7,6 +7,11 @@
       ./hardware-configuration.nix
     ];
 
+# temporary cuz server is down
+  config.manual.{html,manpages,json}.enable = false;
+
+
+
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
