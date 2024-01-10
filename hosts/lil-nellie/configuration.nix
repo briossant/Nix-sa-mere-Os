@@ -29,9 +29,8 @@
     LC_TIME = "fr_FR.UTF-8";
   };
 
-  users.users.bcr = {
+  users.users.lil-nellie = {
     isNormalUser = true;
-    description = "CS2IsCommingSoon";
     extraGroups = [ "audio"  "networkmanager" "wheel" ];
   };
 
