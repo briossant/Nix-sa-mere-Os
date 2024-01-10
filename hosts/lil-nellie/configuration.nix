@@ -32,6 +32,8 @@
   users.users.lil-nellie = {
     isNormalUser = true;
     extraGroups = [ "audio"  "networkmanager" "wheel" ];
+    hashedPassword =
+        "$y$j9T$VEuARXoIfKOJxFZriCvv./$L6hcDNUHBkH2F6OxCfbVpMslijY86/t2Hb35KoMxjB3";
   };
 
   services.xserver = {
