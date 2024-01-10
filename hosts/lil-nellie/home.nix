@@ -8,6 +8,8 @@ in {
        "${md}/vim"
     ];
 
+# temporary cuz server is down
+manual.manpages.enable = false;
 
     home.username = "lil-nellie";
     home.homeDirectory = "/home/lil-nellie";

@@ -7,8 +7,6 @@
       ./hardware-configuration.nix
     ];
 
-# temporary cuz server is down
-  config.manual.{html,manpages,json}.enable = false;
 
 
 
@@ -17,6 +15,7 @@
 
   networking.hostName = "lil-nellie"; 
   networking.networkmanager.enable = true;
+
 
   time.timeZone = "Europe/Paris";
 
