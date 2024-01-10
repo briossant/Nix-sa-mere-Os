@@ -5,8 +5,8 @@ in {
     
   imports =
     [ 
-       ${md}/vim 
-       ${md}/sound 
+       "${md}/vim"
+       "${md}/audio"
     ];
 
 
