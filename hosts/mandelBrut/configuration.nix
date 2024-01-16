@@ -19,11 +19,11 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "the-tower"; # Define your hostname.
+  networking.hostName = "mandelBrut"; # Define your hostname.
   networking.networkmanager.enable = true;
 
     # Set your time zone.
-    time.timeZone = "Europe/Paris";
+  time.timeZone = "Europe/Paris";
   i18n.defaultLocale = "en_US.UTF-8";
 
   i18n.extraLocaleSettings = {
@@ -117,6 +117,7 @@ services.tumbler.enable = true; # Thumbnail support for images
     unzip
     cinnamon.pix
   ];
+  programs.hyprland.enable = true;
 
   services.xserver = {
     enable = true;

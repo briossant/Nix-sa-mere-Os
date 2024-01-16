@@ -9,6 +9,14 @@
 
   outputs = inputs@{ nixpkgs, home-manager, ... }: {
     nixosConfigurations = {
+      mandelBrut = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+
+        modules = [
+            ./hosts/mandelBrut/configuration.nix
+        ];
+
+      };
 
       lil-nellie = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
