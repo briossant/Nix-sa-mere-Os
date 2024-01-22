@@ -45,6 +45,9 @@
         lmms
         vlc
         shutter
+        libreoffice
+        prismlauncher
+        discord
 
 # C programming
         gcc
