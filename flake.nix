@@ -7,30 +7,39 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, ... }: {
-    nixosConfigurations = {
-      mandelBrut = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+  outputs = inputs@{ nixpkgs, home-manager, ... }: 
+    let
+        mkSystem = { modules }: (
+            nixpkgs.lib.nixosSystem {
+                inherit modules;
+                system = "x86_64-linux";
+            }
+        );
 
+        mkHome = { modules }: (
+            home-manager.lib.homeManagerConfiguration {
+                inherit modules;
+            }
+        );
+    in {
+    homeConfigurations = {
+        briossant = mkHome {
+            modules = [
+                ./users/briossant/home.nix
+            ];
+        };
+    };
+
+    nixosConfigurations = {
+      mandelBrut = mkSystem {
         modules = [
             ./hosts/mandelBrut/configuration.nix
         ];
-
       };
 
-      lil-nellie = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-
+      lil-nellie = mkSystem {
         modules = [
           ./hosts/lil-nellie/configuration.nix
-
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-
-            home-manager.users.lil-nellie = import ./hosts/lil-nellie/home.nix;
-          }
         ];
       };
     };
