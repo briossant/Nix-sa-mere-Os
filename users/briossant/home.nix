@@ -1,18 +1,17 @@
 { pkgs, config, ... }:
 let
- md = ../../modules;
+    mkImports =  modules: (map  (str: "../../home-modules/" + str) modules);
 in {
-    
-  imports =
+  imports = mkImports
     [ 
-       "${md}/vim"
+       "vim"
     ];
 
-# temporary cuz server is down
-manual.manpages.enable = false;
+    # temporary cuz server is down
+    manual.manpages.enable = false;
 
-    home.username = "lil-nellie";
-    home.homeDirectory = "/home/lil-nellie";
+    home.username = "briossant";
+    home.homeDirectory = "/home/briossant";
 
     home.stateVersion = "23.11";
 }
