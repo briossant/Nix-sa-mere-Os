@@ -11,8 +11,10 @@
     let
         mkSystem = { modules }: (
             nixpkgs.lib.nixosSystem {
-                inherit modules;
+                modules = modules
                 system = "x86_64-linux";
+
+                                      
             }
         );
 

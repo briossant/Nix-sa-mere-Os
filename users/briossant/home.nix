@@ -8,7 +8,7 @@ in {
     ];
 
     # temporary cuz server is down
-    manual.manpages.enable = false;
+    # manual.manpages.enable = false;
 
     home.username = "briossant";
     home.homeDirectory = "/home/briossant";
