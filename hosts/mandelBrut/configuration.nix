@@ -18,6 +18,11 @@
   networking.hostName = "mandelBrut"; # Define your hostname.
   networking.networkmanager.enable = true;
 
+  virtualisation.docker.enable = true;
+  virtualisation.docker.rootless = {
+  enable = true;
+  setSocketVariable = true;
+};
 
   # Configure keymap in X11
   services.xserver = {
@@ -29,7 +34,7 @@
   users.users.bcr = {
     isNormalUser = true;
     description = "CS2IsCommingSoon";
-    extraGroups = [ "audio"  "networkmanager" "wheel" ];
+    extraGroups = [ "audio"  "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
 	    google-chrome
 	    steam
@@ -100,6 +105,7 @@ services.tumbler.enable = true; # Thumbnail support for images
     powerline-fonts
     unzip
     cinnamon.pix
+    ollama
   ];
   programs.hyprland.enable = true;
 
