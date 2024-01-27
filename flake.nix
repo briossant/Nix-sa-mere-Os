@@ -24,7 +24,7 @@
                         home-manager.users.${globalVars.defaultUser} = 
                             import (./users/${globalVars.defaultUser}/home.nix);
 
-                        home-manager.extraSpecialArgs = [ inputs globalVars ];
+                        home-manager.extraSpecialArgs = { inherit inputs; inherit globalVars; };
                     }
 
                 ];
