@@ -1,4 +1,4 @@
-{config, pkgs, globalVars}:
+{config, pkgs, globalVars, ... }:
 {
     
   # Enable automatic login for the user.

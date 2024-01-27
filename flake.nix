@@ -16,17 +16,17 @@
         mkSystem = { modules }: (
             nixpkgs.lib.nixosSystem {
                 modules = modules ++ [
+                    ./users/configuration.nix
                     home-manager.nixosModules.home-manager
                     {
                         home-manager.useGlobalPkgs = true;
                         home-manager.useUserPackages = true;
                         home-manager.users.${globalVars.defaultUser} = 
-                            import ("./users/" + globalVars.defaultUser + "/home.nix");
+                            import (./users/${globalVars.defaultUser}/home.nix);
 
                         home-manager.extraSpecialArgs = [ inputs globalVars ];
                     }
 
-                    ./users/configuration.nix 
                 ];
                 system = "x86_64-linux";
 
