@@ -18,17 +18,7 @@
                 modules = modules ++ [
                     ./users
                     ./hosts
-
                     home-manager.nixosModules.home-manager
-                    {
-                        home-manager.useGlobalPkgs = true;
-                        home-manager.useUserPackages = true;
-                        home-manager.users.${globalVars.defaultUser} = 
-                            import (./users/${globalVars.defaultUser}/home.nix);
-
-                        home-manager.extraSpecialArgs = { inherit inputs; inherit globalVars; };
-                    }
-
                 ];
                 system = "x86_64-linux";
 
