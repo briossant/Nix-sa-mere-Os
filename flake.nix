@@ -9,6 +9,7 @@
 
   outputs = inputs@{ nixpkgs, home-manager, ... }: 
     let 
+        # global values which may be access anywhere in the flake
         globalVars = {
             defaultUser = "bcr";
         };
@@ -16,22 +17,26 @@
         mkSystem = { modules }: (
             nixpkgs.lib.nixosSystem {
                 modules = modules ++ [
-                    ./users
-                    ./hosts
-                    home-manager.nixosModules.home-manager
+                    ./users # default user config, will load globalVars.defaultUser user
+                    ./hosts # default system config
+                    home-manager.nixosModules.home-manager # for home manager
                 ];
                 system = "x86_64-linux";
 
+                # transmiting variables to imported modules
                 specialArgs = { inherit inputs; inherit globalVars; };
             }
         );
 
+        # not used currently, TODO: add easy user switch with home manager
         mkHome = { modules }: (
             home-manager.lib.homeManagerConfiguration {
                 inherit modules;
             }
         );
     in {
+
+    # same as previous comment
     homeConfigurations = {
         briossant = mkHome {
             modules = [
@@ -40,6 +45,7 @@
         };
     };
 
+    # nixos config for my different devices
     nixosConfigurations = {
       mandelBrut = mkSystem {
         modules = [

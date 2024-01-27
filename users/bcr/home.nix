@@ -2,6 +2,7 @@
 let
     mkImports =  modules: (map  (path: ../../home-modules/${path}) modules);
 in {
+  #modules
   imports = mkImports
     [ 
         "vim"
