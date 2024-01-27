@@ -11,7 +11,9 @@
     let
         mkSystem = { modules }: (
             nixpkgs.lib.nixosSystem {
-                modules = modules;
+                modules = modules@[
+                    home-manager.nixosModules.home-manager
+                ];
                 system = "x86_64-linux";
 
                                       
