@@ -8,15 +8,29 @@
   };
 
   outputs = inputs@{ nixpkgs, home-manager, ... }: 
-    let
+    let 
+        globalVars = {
+            defaultUser = "bcr";
+        };
+    in let
         mkSystem = { modules }: (
             nixpkgs.lib.nixosSystem {
                 modules = modules ++ [
                     home-manager.nixosModules.home-manager
+                    {
+                        home-manager.useGlobalPkgs = true;
+                        home-manager.useUserPackages = true;
+                        home-manager.users.${globalVars.defaultUser} = 
+                            import ("./users/" + globalVars.defaultUser + "/home.nix");
+
+                        home-manager.extraSpecialArgs = [ inputs globalVars ];
+                    }
+
+                    ("./users/" + globalVars.defaultUser + "/configuration.nix")
                 ];
                 system = "x86_64-linux";
 
-                                      
+                specialArgs = { inherit inputs; inherit globalVars; };
             }
         );
 
