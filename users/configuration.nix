@@ -9,6 +9,6 @@
     isNormalUser = true;
     description = "CS2IsCommingSoon";
     extraGroups = [ "audio"  "networkmanager" "wheel" ];
-    defaultPassword = "42";
+     initialPassword= "42";
   };
 }

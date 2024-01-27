@@ -1,10 +1,10 @@
 { pkgs, config, ... }:
 let
-    mkImports =  modules: (map  (str: "../../home-modules/" + str) modules);
+    mkImports =  modules: (map  (path: ../../home-modules/${path}) modules);
 in {
   imports = mkImports
     [ 
-       "vim"
+        "vim"
     ];
 
     # temporary cuz server is down
