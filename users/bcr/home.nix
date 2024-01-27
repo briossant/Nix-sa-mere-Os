@@ -5,6 +5,7 @@ in {
   imports = mkImports
     [ 
         "vim"
+        "games"
     ];
 
     # temporary cuz server is down
@@ -17,7 +18,6 @@ in {
 
     home.packages = with pkgs; [
 	    google-chrome
-	    steam
         xfce.thunar	
         lxterminal	
         cura
@@ -30,8 +30,6 @@ in {
         vlc
         shutter
         libreoffice
-        prismlauncher
-        discord
 
 # C programming
         gcc

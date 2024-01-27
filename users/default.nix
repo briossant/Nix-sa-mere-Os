@@ -1,14 +1,12 @@
 {config, pkgs, globalVars, ... }:
 {
-    
   # Enable automatic login for the user.
   services.getty.autologinUser = globalVars.defaultUser;
     
-  # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.${globalVars.defaultUser} = {
     isNormalUser = true;
-    description = "CS2IsCommingSoon";
+    description = "the default user";
     extraGroups = [ "audio"  "networkmanager" "wheel" ];
-     initialPassword= "42";
+    initialPassword= "42";
   };
 }

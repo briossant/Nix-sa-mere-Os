@@ -16,7 +16,9 @@
         mkSystem = { modules }: (
             nixpkgs.lib.nixosSystem {
                 modules = modules ++ [
-                    ./users/configuration.nix
+                    ./users
+                    ./hosts
+
                     home-manager.nixosModules.home-manager
                     {
                         home-manager.useGlobalPkgs = true;
