@@ -18,56 +18,12 @@
   networking.hostName = "mandelBrut"; # Define your hostname.
   networking.networkmanager.enable = true;
 
-  virtualisation.docker.enable = true;
-  virtualisation.docker.rootless = {
-  enable = true;
-  setSocketVariable = true;
-};
-
   # Configure keymap in X11
   services.xserver = {
     layout = "us";
     xkbVariant = "";
   };
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.bcr = {
-    isNormalUser = true;
-    description = "CS2IsCommingSoon";
-    extraGroups = [ "audio"  "networkmanager" "wheel" "docker" ];
-    packages = with pkgs; [
-	    google-chrome
-	    steam
-        xfce.thunar	
-        lxterminal	
-        cura
-        python311Packages.pip
-        python311Packages.virtualenv
-        python311Packages.autopep8     
-        julia        
-        rlwrap
-        feh
-        lmms
-        vlc
-        shutter
-        libreoffice
-        prismlauncher
-        discord
-
-# C programming
-        gcc
-        gdb
-        gnumake
-        valgrind
-        clang-tools_16
-        criterion
-
-        ocaml
-        ocamlPackages.ocaml-lsp
-        ocamlformat
-
-    ];
-  };
 fonts.fonts = with pkgs; [
     powerline-fonts
     terminus_font
@@ -84,8 +40,6 @@ services.gvfs.enable = true; # Mount, trash, and other functionalities
 services.tumbler.enable = true; # Thumbnail support for images
 
 
-  # Enable automatic login for the user.
-  services.getty.autologinUser = "bcr";
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -107,7 +61,6 @@ services.tumbler.enable = true; # Thumbnail support for images
     cinnamon.pix
     ollama
   ];
-  programs.hyprland.enable = true;
 
   services.xserver = {
     enable = true;

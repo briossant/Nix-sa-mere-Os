@@ -26,7 +26,7 @@
                         home-manager.extraSpecialArgs = [ inputs globalVars ];
                     }
 
-                    ("./users/" + globalVars.defaultUser + "/configuration.nix")
+                    ./users/configuration.nix 
                 ];
                 system = "x86_64-linux";
 
