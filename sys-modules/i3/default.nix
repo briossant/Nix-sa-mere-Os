@@ -7,5 +7,6 @@
     windowManager.i3 = {
       enable = true;
     };
+    desktopManager.default = "none+i3";
   };
 }

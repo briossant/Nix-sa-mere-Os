@@ -7,7 +7,6 @@
     layout = "us";
     xkbVariant = "";
     xkbOptions = "caps:escape";
-    desktopManager.default = "none";
     displayManager.auto = { enable = true; user = globalVars.defaultUser; };
   };
 }
