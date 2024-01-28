@@ -1,4 +1,4 @@
-{pkgs, globalVars, config, ...}:
+{pkgs, config, ...}:
 
 # the default x11 config
 {
@@ -6,7 +6,8 @@
     enable = true;
     layout = "us";
     xkbVariant = "";
+
+    # remap for vim
     xkbOptions = "caps:escape";
-    displayManager.startx.enable = true;
   };
 }
