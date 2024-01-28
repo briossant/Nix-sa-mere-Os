@@ -1,5 +1,6 @@
 { config, lib, pkgs, ... }:
 
+# make sure that x11 is enabled
 let 
   mod = "Mod4";
 in {

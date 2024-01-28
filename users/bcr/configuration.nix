@@ -5,5 +5,6 @@
     # modules
     imports = [
         ../../sys-modules/steam
+        ../../sys-modules/x11
     ];
 }
