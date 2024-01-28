@@ -5,6 +5,6 @@
     # modules
     imports = [
         ../../sys-modules/steam
-        ../../sys-modules/i3
+        ../../sys-modules/wm/i3
     ];
 }
