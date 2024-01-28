@@ -7,6 +7,6 @@
     windowManager.i3 = {
       enable = true;
     };
-    desktopManager.default = "none+i3";
+      services.xserver.displayManager.defaultSession = "none+i3";
   };
 }

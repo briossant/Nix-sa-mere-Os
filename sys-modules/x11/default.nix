@@ -7,6 +7,6 @@
     layout = "us";
     xkbVariant = "";
     xkbOptions = "caps:escape";
-    displayManager.auto = { enable = true; user = globalVars.defaultUser; };
+    displayManager.startx.enable = true;
   };
 }
