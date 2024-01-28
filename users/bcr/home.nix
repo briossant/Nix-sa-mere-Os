@@ -7,6 +7,7 @@ in {
     [ 
         "vim"
         "games"
+        "i3"
     ];
 
     # temporary cuz server is down
