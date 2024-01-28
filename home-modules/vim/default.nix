@@ -17,7 +17,7 @@
   };
 
   home.packages = with pkgs; [
-    powerline-font
+    powerline-fonts
   ];
 }
 
