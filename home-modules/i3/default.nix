@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, globalVars, ... }:
 
 # make sure that x11 is enabled
 let 
@@ -24,6 +24,8 @@ in {
         "${mod}+Shift+k" = "move up";
         "${mod}+Shift+l" = "move right";
       };
+
+      terminal = globalVars.terminal;
     };
   };
 }

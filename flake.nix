@@ -12,6 +12,7 @@
         # global values which may be access anywhere in the flake
         globalVars = {
             defaultUser = "bcr";
+            terminal = "alacritty";
         };
     in let
         mkSystem = { modules }: (

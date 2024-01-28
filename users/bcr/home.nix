@@ -1,13 +1,15 @@
-{ pkgs, config, ... }:
+{ pkgs, config, globalVars, ... }:
 let
-    mkImports =  modules: (map  (path: ../../home-modules/${path}) modules);
+  mkImports = modules: (map  (path: ../../home-modules/${path}) modules);
 in {
+
   #modules
   imports = mkImports
     [ 
         "vim"
         "games"
         "i3"
+        "alacritty"
     ];
 
     # temporary cuz server is down
