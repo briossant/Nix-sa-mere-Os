@@ -1,10 +1,10 @@
-{pkgs, config, ...}:
+{pkgs, config, globalVars, ...}:
 
 # system level config for the user
 {
     # modules
     imports = [
         ../../sys-modules/steam
-        ../../sys-modules/wm/i3
+        ../../sys-modules/wm/${globalVars.wm}
     ];
 }

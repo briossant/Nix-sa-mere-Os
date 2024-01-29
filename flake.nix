@@ -13,6 +13,7 @@
         globalVars = {
             defaultUser = "bcr";
             terminal = "alacritty";
+            wm = "i3";
         };
     in let
         mkSystem = { modules }: (

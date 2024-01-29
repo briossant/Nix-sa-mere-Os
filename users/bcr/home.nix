@@ -8,8 +8,8 @@ in {
     [ 
         "vim"
         "games"
-        "i3"
         "alacritty"
+        globalVars.wm
     ];
 
     # temporary cuz server is down
