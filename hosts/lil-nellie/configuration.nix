@@ -1,13 +1,12 @@
-
 { config, pkgs, ... }:
 
 {
   imports =
-    [ 
+    [
       ./hardware-configuration.nix
     ];
 
-  networking.hostName = "lil-nellie"; 
+  networking.hostName = "lil-nellie";
 
   services.xserver = {
     libinput = {

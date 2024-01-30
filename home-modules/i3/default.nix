@@ -1,9 +1,10 @@
 { config, lib, pkgs, globalVars, ... }:
 
 # make sure that x11 is enabled
-let 
+let
   mod = "Mod4";
-in {
+in
+{
   xsession.enable = true;
 
   xsession.windowManager.i3 = {

@@ -1,4 +1,4 @@
-{pkgs, config, ...}:
+{ pkgs, config, ... }:
 
 # the default x11 config
 {

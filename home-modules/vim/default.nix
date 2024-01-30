@@ -4,15 +4,15 @@
 {
   programs.vim = {
     enable = true;
-    plugins = with pkgs.vimPlugins; [ 
-	  vim-airline
+    plugins = with pkgs.vimPlugins; [
+      vim-airline
       gruvbox
-	  coc-nvim 
-  	  vim-airline-themes
-	  vim-fugitive
-	  vim-wakatime
-	  rainbow
-	  vim-gitgutter
+      coc-nvim
+      vim-airline-themes
+      vim-fugitive
+      vim-wakatime
+      rainbow
+      vim-gitgutter
     ];
     extraConfig = (builtins.readFile ./vimrc);
   };

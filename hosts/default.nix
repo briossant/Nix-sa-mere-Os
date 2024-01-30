@@ -1,10 +1,9 @@
-
 { config, pkgs, ... }:
 
 # everything required for every system configs
 {
-  environment.pathsToLink = ["/libexec"];
- 
+  environment.pathsToLink = [ "/libexec" ];
+
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
@@ -13,7 +12,7 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-    vim 
+    vim
     git
   ];
 

@@ -1,7 +1,6 @@
-
 { config, pkgs, ... }:
 {
-    
+
   hardware.opengl = {
     enable = true;
     driSupport = true;
@@ -9,7 +8,7 @@
   };
 
   # Load nvidia driver for Xorg and Wayland
-  services.xserver.videoDrivers = ["nvidia"];
+  services.xserver.videoDrivers = [ "nvidia" ];
 
   hardware.nvidia = {
 
@@ -23,7 +22,7 @@
     powerManagement.finegrained = false;
 
     # Enable the Nvidia settings menu,
-	# accessible via `nvidia-settings`.
+    # accessible via `nvidia-settings`.
     nvidiaSettings = true;
 
     # Optionally, you may need to select the appropriate driver version for your specific GPU.

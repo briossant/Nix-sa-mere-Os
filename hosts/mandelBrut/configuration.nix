@@ -1,9 +1,8 @@
-
 { config, pkgs, ... }:
 
 {
   imports =
-    [ 
+    [
       ./hardware-configuration.nix
       ../../sys-modules/audio
       ../../sys-modules/nvidia
@@ -13,10 +12,10 @@
 
   networking.hostName = "mandelBrut"; # Define your hostname.
 
-programs.thunar.enable = true;
+  programs.thunar.enable = true;
 
-services.gvfs.enable = true; # Mount, trash, and other functionalities
-services.tumbler.enable = true; # Thumbnail support for images
+  services.gvfs.enable = true; # Mount, trash, and other functionalities
+  services.tumbler.enable = true; # Thumbnail support for images
 
 
   # List packages installed in system profile. To search, run:
@@ -26,7 +25,7 @@ services.tumbler.enable = true; # Thumbnail support for images
     i3
     firefox
     git-lfs
-    nodejs    
+    nodejs
     xterm
     python311
     powerline-fonts
