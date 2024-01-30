@@ -6,6 +6,7 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    # prismlauncher version 7.2
     prismlauncher.url = "github:nixos/nixpkgs/9957cd48326fe8dbd52fdc50dd2502307f188b0d";
   };
 
@@ -13,6 +14,7 @@
     let 
         # global values which may be access anywhere in the flake
         globalVars = {
+            system = "x86_64-linux";
             defaultUser = "bcr";
             terminal = "alacritty";
             wm = "i3";
@@ -25,7 +27,7 @@
                     ./hosts # default system config
                     home-manager.nixosModules.home-manager # for home manager
                 ];
-                system = "x86_64-linux";
+                system = globalVars.system;
 
                 # transmiting variables to imported modules
                 specialArgs = { inherit inputs; inherit globalVars; };
