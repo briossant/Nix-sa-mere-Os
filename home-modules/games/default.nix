@@ -1,7 +1,8 @@
-{ pkgs, config, ... }:
+{ pkgs, config, inputs, ... }:
+
 {
-    home.packages = with pkgs; [
-        discord
-        prismlauncher # minecraft
+    home.packages = [
+        pkgs.discord
+        inputs.prismlauncher.pkgs.prismlauncher # minecraft
     ];
 }

@@ -40,11 +40,8 @@ in {
         gdb
         gnumake
         valgrind
-        clang-tools_16
         criterion
 
         ocaml
-        ocamlPackages.ocaml-lsp
-        ocamlformat
     ];
 }
