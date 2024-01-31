@@ -6,5 +6,6 @@
   imports = [
     ../../sys-modules/steam
     ../../sys-modules/wm/${globalVars.wm}
+    ../../sys-modules/thunar
   ];
 }

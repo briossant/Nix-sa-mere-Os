@@ -22,27 +22,45 @@ in
   home.stateVersion = "23.11";
 
   home.packages = with pkgs; [
+
+    # browser
     google-chrome
-    xfce.thunar
+    firefox
+
+    # utils & shell things
     lxterminal
-    cura
-    python311Packages.pip
-    python311Packages.virtualenv
-    python311Packages.autopep8
     rlwrap
     feh
-    lmms
-    vlc
+    git-lfs
+    unzip
+
+    # desktop
+    cinnamon.pix
+    cura
     shutter
     libreoffice
+    lmms
+    vlc
+
+    # ia
+    ollama
 
     # C programming
     gcc
     gdb
     gnumake
     valgrind
-    criterion
 
+    # javascript
+    nodejs
+
+    # ocaml
     ocaml
+
+    # python
+    python311
+    python311Packages.pip
+    python311Packages.virtualenv
+    python311Packages.autopep8
   ];
 }
