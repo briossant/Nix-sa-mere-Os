@@ -51,6 +51,10 @@ in
     gnumake
     valgrind
 
+    # rust
+    rustc
+    cargo
+
     # javascript
     nodejs
 

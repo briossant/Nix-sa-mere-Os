@@ -8,6 +8,7 @@
       vim-airline
       gruvbox
       coc-nvim
+      coc-rust-analyzer
       vim-airline-themes
       vim-fugitive
       vim-wakatime
