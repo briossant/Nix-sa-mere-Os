@@ -1,8 +1,9 @@
 { pkgs, ... }:
 
 {
+  services.pulseeffects.enable = true;
+
   home.packages = with pkgs; [
-    pulseeffects-legacy # audio filters & effects
     pulsemixer # cli mixer 
   ];
 }

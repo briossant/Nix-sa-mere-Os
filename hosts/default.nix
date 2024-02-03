@@ -11,6 +11,8 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  programs.dconf.enable = true; # for pulse effect
+
   environment.systemPackages = with pkgs; [
     vim
     git
