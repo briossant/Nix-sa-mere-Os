@@ -10,6 +10,7 @@ in
       "vim"
       "games"
       "alacritty"
+      "audio-utils"
       globalVars.wm
     ];
 
