@@ -2,7 +2,7 @@
 
 {
   home.packages = with pkgs; [
-    easyeffects # audio filters & effects
-    pulsemixer # gui mixer 
+    pulseeffects-legacy # audio filters & effects
+    pulsemixer # cli mixer 
   ];
 }
