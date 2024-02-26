@@ -5,6 +5,7 @@
   programs.vim = {
     enable = true;
     plugins = with pkgs.vimPlugins; [
+      coc-rust-analyzer
       vim-airline
       gruvbox
       coc-nvim
@@ -34,6 +35,9 @@
     # ocaml
     ocamlPackages.ocaml-lsp
     ocamlformat
+
+    # rust
+    rust-analyser
   ];
 
   home.file = {
