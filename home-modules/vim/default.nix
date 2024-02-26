@@ -37,7 +37,7 @@
     ocamlformat
 
     # rust
-    rust-analyser
+    rust-analyzer
   ];
 
   home.file = {
