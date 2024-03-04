@@ -6,6 +6,7 @@
     enable = true;
     plugins = with pkgs.vimPlugins; [
       coc-rust-analyzer
+      markdown-preview-nvim
       vim-airline
       gruvbox
       coc-nvim

@@ -8,6 +8,7 @@ in
   imports = mkImports
     [
       "vim"
+      "bash"
       "games"
       "alacritty"
       "audio-utils"
