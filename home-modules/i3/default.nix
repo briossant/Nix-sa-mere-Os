@@ -51,6 +51,38 @@ in
         }
       ];
 
+      bars = [
+        {
+          position = "top";
+          # fonts = {
+          # names = [ "nerdfonts" ];
+          # size = 20.0;
+          #};
+
+          # No need to specify path for settings file for i3status bar.
+          # By default i3status will look for config files at specific paths.
+          # I have a seperate file with definitions for i3status bar and it will
+          # generate a config file for i3status to look at.
+          statusCommand = "${pkgs.i3status}/bin/i3status";
+          colors =
+            let
+              mkBarColor = c: {
+                border = c.bg;
+                background = c.bg;
+                text = c.text;
+              };
+            in
+            {
+              background = thm.secondary.bg;
+              # separator = "#757575";
+
+              focusedWorkspace = mkBarColor thm.main;
+              inactiveWorkspace = mkBarColor thm.off;
+              urgentWorkspace = mkBarColor thm.warning;
+            };
+        }
+
+      ];
     };
     extraConfig = ''
       client.focused ${mkColor thm.main}       
@@ -60,6 +92,8 @@ in
       client.unfocused ${mkColor thm.off}
       client.background ${thm.extra.bg}
     '';
+
+
   };
 }
 

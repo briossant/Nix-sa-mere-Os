@@ -5,6 +5,7 @@
 
   home.packages = with pkgs; [
     pulsemixer # cli mixer 
+    pavucontrol # gui audio device manager
   ];
 
   home.file = {
