@@ -4,8 +4,6 @@
 let
   mod = "Mod4";
   thm = globalVars.theme;
-  # class                 border  backgr. text    indicator child_border
-  mkColor = color: "${color.bg} ${color.bg} ${color.text} ${color.bg} ${color.bg}";
 in
 {
   xsession.enable = true;
@@ -67,31 +65,36 @@ in
           colors =
             let
               mkBarColor = c: {
-                border = c.bg;
-                background = c.bg;
+                border = c.secondary;
+                background = c.primary;
                 text = c.text;
               };
             in
             {
-              background = thm.secondary.bg;
+              background = thm.background.primary;
               # separator = "#757575";
 
-              focusedWorkspace = mkBarColor thm.main;
-              inactiveWorkspace = mkBarColor thm.off;
+              focusedWorkspace = mkBarColor thm.active;
+              inactiveWorkspace = mkBarColor thm.unactive;
               urgentWorkspace = mkBarColor thm.warning;
             };
         }
 
       ];
     };
-    extraConfig = ''
-      client.focused ${mkColor thm.main}       
-      client.focused_inactive ${mkColor thm.secondary}       
-      client.placeholder  ${mkColor thm.warning}        
-      client.urgent  ${mkColor thm.warning}        
-      client.unfocused ${mkColor thm.off}
-      client.background ${thm.extra.bg}
-    '';
+    extraConfig =
+      let
+        # class                 border  backgr. text    indicator child_border
+        mkColor = color: "${color.secondary} ${color.primary} ${color.text} ${color.secondary} ${color.secondary}";
+      in
+      ''
+        client.focused ${mkColor thm.active}       
+        client.focused_inactive ${mkColor thm.unactive}       
+        client.placeholder  ${mkColor thm.good}        
+        client.urgent  ${mkColor thm.warning}        
+        client.unfocused ${mkColor thm.unactive}
+        client.background ${thm.background.primary}
+      '';
 
 
   };

@@ -1,30 +1,41 @@
-let
-  white = "#ffffff";
-  black = "#000000";
-in
 {
-  main = {
-    bg = "#EEE3AB";
-    text = black;
+  background = {
+    primary = "#fdf6e3";
+    secondary = "#eee8d5";
+    accent = "";
+    text = "";
+    strong-text = "";
   };
-  secondary = {
-    bg = "#66462C";
-    text = white;
+
+  active = {
+    primary = "";
+    secondary = "";
+    accent = "";
+    text = "";
+    strong-text = "";
   };
-  neutral = {
-    bg = "#FBFAD8";
-    text = black;
+
+  unactive = {
+    primary = "";
+    secondary = "";
+    accent = "";
+    text = "";
+    strong-text = "";
   };
-  off = {
-    bg = "#310A31";
-    text = white;
+
+  good = {
+    primary = "";
+    secondary = "";
+    accent = "";
+    text = "";
+    strong-text = "";
   };
+
   warning = {
-    bg = "#ED6A5A";
-    text = black;
-  };
-  extra = {
-    bg = "#90776E";
-    text = black;
+    primary = "";
+    secondary = "";
+    accent = "";
+    text = "";
+    strong-text = "";
   };
 }
