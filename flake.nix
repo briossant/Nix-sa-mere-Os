@@ -18,6 +18,7 @@
         defaultUser = "bcr";
         terminal = "alacritty";
         wm = "i3";
+        theme = (import ./themes/default.nix);
       };
     in
     let

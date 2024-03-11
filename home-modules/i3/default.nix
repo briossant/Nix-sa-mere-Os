@@ -26,6 +26,16 @@ in
         "${mod}+Shift+l" = "move right";
       };
 
+      colors =
+        let
+          th = globalVars.theme;
+        in
+        {
+          focused = th.main;
+          unfocused = th.off;
+          urgent = th.warning;
+        };
+
       terminal = globalVars.terminal;
     };
   };
