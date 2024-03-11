@@ -5,7 +5,7 @@ let
   mod = "Mod4";
   thm = globalVars.theme;
   # class                 border  backgr. text    indicator child_border
-  mkColor = color: "${color} ${color} ${thm.neutral} ${thm.off} ${thm.off}";
+  mkColor = color: "${color.bg} ${color.bg} ${color.text} ${color.bg} ${color.bg}";
 in
 {
   xsession.enable = true;
@@ -34,8 +34,10 @@ in
     };
     extraConfig = ''
       client.focused ${mkColor thm.main}       
-      client.unfocused ${mkColor thm.off}       
-      client.urgent  ${mkColor thm.warning}       
+      client.urgent  ${mkColor thm.warning}        
+      client.unfocused ${mkColor thm.off}
     '';
   };
 }
+
+
