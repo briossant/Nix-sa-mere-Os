@@ -3,6 +3,9 @@
 # make sure that x11 is enabled
 let
   mod = "Mod4";
+  thm = globalVars.theme;
+  # class                 border  backgr. text    indicator child_border
+  mkColor = color: "${color} ${color} ${thm.neutral} ${thm.off} ${thm.off}";
 in
 {
   xsession.enable = true;
@@ -26,17 +29,13 @@ in
         "${mod}+Shift+l" = "move right";
       };
 
-      colors =
-        let
-          th = globalVars.theme;
-        in
-        {
-          focused = th.main;
-          unfocused = th.off;
-          urgent = th.warning;
-        };
-
       terminal = globalVars.terminal;
+
     };
+    extraConfig = ''
+      client.focused ${mkColor thm.main}       
+      client.unfocused ${mkColor thm.off}       
+      client.urgent  ${mkColor thm.warning}       
+    '';
   };
 }

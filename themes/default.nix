@@ -1,5 +1,3 @@
-{ ... }:
-
 {
   main = "#B1EDE8";
   secondary = "#6D435A";
