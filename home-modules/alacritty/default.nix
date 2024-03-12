@@ -1,4 +1,4 @@
-{ globalVars, pkgs, ... }:
+{ lib, globalVars, pkgs, ... }:
 
 {
   # compositor for transparent background
@@ -17,7 +17,7 @@
       };
       window = {
         title = "Abats-LA-CRITTYques.";
-        opacity = 0.8;
+        opacity = lib.mkForce 0.8;
       };
       scrolling = {
         history = 100000; # le MAX

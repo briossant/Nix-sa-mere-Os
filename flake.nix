@@ -20,7 +20,7 @@
         defaultUser = "bcr";
         terminal = "alacritty";
         wm = "i3";
-        theme = (import ./themes/default.nix);
+        theme = (import ./themes/solarized.nix);
         darkmode = false;
       };
     in
