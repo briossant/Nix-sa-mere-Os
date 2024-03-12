@@ -8,6 +8,8 @@
 
     # prismlauncher version 7.2
     prismlauncher.url = "github:nixos/nixpkgs/9957cd48326fe8dbd52fdc50dd2502307f188b0d";
+
+    alacritty-theme.url = "github:alexghr/alacritty-theme.nix";
   };
 
   outputs = inputs@{ nixpkgs, home-manager, ... }:
@@ -28,6 +30,11 @@
             ./users # default user config, will load globalVars.defaultUser user
             ./hosts # default system config
             home-manager.nixosModules.home-manager # for home manager
+
+            # overlays
+            ({ config, pkgs, ... }: {
+              nixpkgs.overlays = [ inputs.alacritty-theme.overlays.default ];
+            })
           ];
           system = globalVars.system;
 
