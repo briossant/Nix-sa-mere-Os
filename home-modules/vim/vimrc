@@ -18,12 +18,7 @@ noremap <C-Down> :resize -2<CR>
 noremap <C-Left> :vertical resize +2<CR>
 noremap <C-Right> :vertical resize -2<CR>
 
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
-let g:airline_theme='base16_eighties'
 
-set background=dark    " Setting dark mode
-colorscheme gruvbox
 
 " Highlight current line
 set cursorline

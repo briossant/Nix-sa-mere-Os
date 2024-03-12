@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ globalVars, pkgs, ... }:
 
 
 {
@@ -17,7 +17,24 @@
       rainbow
       vim-gitgutter
     ];
-    extraConfig = (builtins.readFile ./vimrc);
+    extraConfig =
+      let
+        dm = globalVars.darkmode;
+      in
+      ''
+        let g:airline#extensions#tabline#enabled = 1
+        let g:airline_powerline_fonts = 1
+
+        let g:airline_theme='${if dm then "base16_eighties"
+          else "solarized"}'
+
+        syntax on
+
+        set termguicolors
+        set background=${if dm then "dark" else "light"}
+
+        colorscheme gruvbox
+      '' + (builtins.readFile ./vimrc);
   };
 
   home.packages = with pkgs; [
@@ -45,4 +62,5 @@
     ".vim/coc-settings.json".source = ./coc-settings.json;
   };
 }
+
 

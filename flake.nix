@@ -21,6 +21,7 @@
         terminal = "alacritty";
         wm = "i3";
         theme = (import ./themes/default.nix);
+        darkmode = false;
       };
     in
     let
