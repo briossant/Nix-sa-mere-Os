@@ -8,6 +8,11 @@ in
 {
   xsession.enable = true;
 
+  # compositor mainly to allow transparency of other programs
+  services.picom = {
+    enable = true;
+  };
+
   xsession.windowManager.i3 = {
     enable = true;
     config = {
@@ -44,6 +49,11 @@ in
         }
         {
           command = "${pkgs.feh}/bin/feh --no-fehbg --bg-fill --randomize ~/wallpapers/*.JPG";
+          always = true;
+          notification = false;
+        }
+        {
+          command = "${pkgs.picom}/bin/picom";
           always = true;
           notification = false;
         }

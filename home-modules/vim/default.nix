@@ -34,6 +34,9 @@
         set background=${if dm then "dark" else "light"}
 
         colorscheme gruvbox
+
+        " transparent background
+        hi Normal guibg=NONE ctermbg=NONE
       '' + (builtins.readFile ./vimrc);
   };
 
