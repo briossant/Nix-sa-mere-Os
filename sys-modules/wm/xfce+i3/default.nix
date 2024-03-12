@@ -1,4 +1,4 @@
-{ config, pkgs, callPackage, ... }:
+{ lib, config, pkgs, callPackage, ... }:
 
 {
   imports = [
@@ -14,7 +14,7 @@
         enableXfwm = false;
       };
     };
-    displayManager.defaultSession = "xfce";
+    displayManager.defaultSession = lib.mkDefault "xfce";
   };
 }
 
