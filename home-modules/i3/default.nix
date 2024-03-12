@@ -59,6 +59,13 @@ in
         }
       ];
 
+      gaps = {
+        outer = 4;
+        inner = 6;
+      };
+
+      window.border = 2;
+
       bars = [
         {
           position = "top";
@@ -73,20 +80,26 @@ in
           # generate a config file for i3status to look at.
           statusCommand = "${pkgs.i3status}/bin/i3status";
           colors =
-            let
-              mkBarColor = c: {
-                border = c.secondary;
-                background = c.primary;
-                text = c.text;
-              };
-            in
             {
               background = thm.background.primary;
               # separator = "#757575";
 
-              focusedWorkspace = mkBarColor thm.active;
-              inactiveWorkspace = mkBarColor thm.unactive;
-              urgentWorkspace = mkBarColor thm.warning;
+              focusedWorkspace = {
+                # tricks to make it apear smaller
+                border = thm.background.primary;
+                background = thm.active.primary;
+                text = thm.active.text;
+              };
+              inactiveWorkspace = {
+                border = thm.unactive.primary;
+                background = thm.unactive.primary;
+                text = thm.unactive.text;
+              };
+              urgentWorkspace = {
+                border = thm.warning.primary;
+                background = thm.warning.secondary;
+                text = thm.warning.text;
+              };
             };
         }
 
@@ -95,7 +108,7 @@ in
     extraConfig =
       let
         # class                 border  backgr. text    indicator child_border
-        mkColor = color: "${color.secondary} ${color.primary} ${color.text} ${color.secondary} ${color.secondary}";
+        mkColor = color: "${color.primary} ${color.primary} ${color.text} ${color.primary} ${color.primary}";
       in
       ''
         client.focused ${mkColor thm.active}       
