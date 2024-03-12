@@ -25,8 +25,8 @@
         let g:airline#extensions#tabline#enabled = 1
         let g:airline_powerline_fonts = 1
 
-        let g:airline_theme='${if dm then "base16_eighties"
-          else "solarized"}'
+        let g:airline_theme=${if dm then "'base16_eighties'"
+          else "'solarized'\nlet g:airline_solarized_bg='dark'"}
 
         syntax on
 
