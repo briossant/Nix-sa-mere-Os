@@ -19,7 +19,7 @@
         system = "x86_64-linux";
         defaultUser = "bcr";
         terminal = "alacritty";
-        wm = "i3";
+        wm = "xfce+i3"; # options are the dir-name at -> sys-modules/wm/*
         theme = (import ./themes/solarized.nix);
         darkmode = false;
       };
