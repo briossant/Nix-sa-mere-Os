@@ -5,17 +5,32 @@
   programs.vim = {
     enable = true;
     plugins = with pkgs.vimPlugins; [
-      coc-rust-analyzer
+
+      # utils & fun
       markdown-preview-nvim
-      vim-airline
-      gruvbox
-      coc-nvim
-      coc-rust-analyzer
-      vim-airline-themes
       vim-fugitive
       vim-wakatime
+
+      # theming
+      vim-airline
+      vim-airline-themes
       rainbow
       vim-gitgutter
+      gruvbox
+
+      # completion with coc
+      coc-nvim
+      coc-prettier
+      coc-rust-analyzer # rust
+      coc-tabnine # ia suggestions
+      coc-tsserver # js & ts
+      coc-pyright # python
+      coc-ltex # spelling/grammar
+      coc-json
+      coc-markdownlint
+      coc-html
+      coc-css
+
     ];
     extraConfig =
       let
