@@ -6,6 +6,9 @@ let
   thm = globalVars.theme;
 in
 {
+  imports = [
+    ./wallpaper.nix
+  ];
   xsession.enable = true;
 
   # compositor mainly to allow transparency of other programs
@@ -44,11 +47,6 @@ in
       startup = [
         {
           command = "exec i3-msg workspace 1";
-          always = true;
-          notification = false;
-        }
-        {
-          command = "${pkgs.feh}/bin/feh --no-fehbg --bg-fill --randomize ~/wallpapers/*.JPG";
           always = true;
           notification = false;
         }
