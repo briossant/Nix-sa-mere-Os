@@ -2,6 +2,8 @@
 
 {
 
+  # use systemctl --user status wallpaper-changer.service
+  # for debugging
   systemd.user.services.wallpaper-changer = {
     Unit = {
       Description = "Wallpaper Refresher";
@@ -15,6 +17,8 @@
     };
   };
 
+  # use systemctl --user status wallpaper-changer.timer
+  # for debugging
   systemd.user.timers.wallpaper-changer = {
     Unit = {
       Description = "Wallpaper Cycler";
