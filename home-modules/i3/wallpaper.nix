@@ -4,26 +4,31 @@
 
   systemd.user.services.wallpaper-changer = {
     Unit = {
-      description = "Wallpaper Refresher";
+      Description = "Wallpaper Refresher";
     };
     Service = {
       Type = "oneshot";
-      ExecStart = "${pkgs.feh}/bin/feh --no-fehbg --bg-fill --randomize ~/wallpapers/*.JPG";
+      ExecStart = toString (pkgs.writeShellScript "refresh-wallpaper" ''
+        #!/bin/bash
+        ${pkgs.feh}/bin/feh --no-fehbg --bg-fill --randomize ~/wallpapers/*.JPG
+      '');
     };
   };
 
   systemd.user.timers.wallpaper-changer = {
     Unit = {
-      description = "Wallpaper Cycler";
-      wants = [ "display-manager.service" ];
-      after = [ "graphical-session.target" ];
+      Description = "Wallpaper Cycler";
+      Wants = [ "display-manager.service" ];
+      After = [ "graphical-session.target" ];
     };
     Install = {
-      wantedBy = [ "graphical-session.target" ];
+      WantedBy = [ "graphical-session.target" ];
     };
     Timer = {
       Unit = "wallpaper-changer.service";
-      OnCalendar = "*-*-* *:*:00";
+      #   OnCalendar = "*-*-* *:*:00";
+      OnBootSec = "1s";
+      OnUnitActiveSec = "1m";
       Persistent = true;
     };
   };
