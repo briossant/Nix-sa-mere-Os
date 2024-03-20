@@ -35,6 +35,8 @@ in
     feh
     git-lfs
     unzip
+    brightnessctl
+    xsel
 
     # desktop
     cinnamon.pix
