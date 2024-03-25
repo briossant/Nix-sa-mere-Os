@@ -16,7 +16,7 @@
       vim-airline-themes
       rainbow
       vim-gitgutter
-      gruvbox
+      # gruvbox
 
       # completion with coc
       coc-nvim
@@ -48,7 +48,7 @@
         set termguicolors
         set background=${if dm then "dark" else "light"}
 
-        colorscheme gruvbox
+        " colorscheme gruvbox
 
         " transparent background
         hi Normal guibg=NONE ctermbg=NONE

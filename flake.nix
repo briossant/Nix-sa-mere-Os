@@ -9,8 +9,6 @@
     # prismlauncher version 7.2
     prismlauncher.url = "github:nixos/nixpkgs/9957cd48326fe8dbd52fdc50dd2502307f188b0d";
 
-    alacritty-theme.url = "github:alexghr/alacritty-theme.nix";
-
     stylix.url = "github:danth/stylix";
   };
 
@@ -23,6 +21,7 @@
         terminal = "alacritty";
         wm = "xfce+i3"; # options are the dir-name at -> sys-modules/wm/*
         darkmode = true;
+        stylix-image = ./images/IMG_0278.JPG;
       };
     in
     let
@@ -33,11 +32,6 @@
             ./hosts # default system config
             home-manager.nixosModules.home-manager # for home manager
             inputs.stylix.nixosModules.stylix
-
-            # overlays
-            ({ config, pkgs, ... }: {
-              nixpkgs.overlays = [ inputs.alacritty-theme.overlays.default ];
-            })
           ];
           system = globalVars.system;
 

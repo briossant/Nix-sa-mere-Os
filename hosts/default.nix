@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, globalVars, ... }:
 
 # everything required for every system configs
 {
@@ -9,8 +9,7 @@
 
   networking.networkmanager.enable = true;
 
-  stylix.image = ../images/for-da-README.png;
-  stylix.autoEnable = false;
+  stylix.image = globalVars.stylix-image;
 
   nixpkgs.config.allowUnfree = true;
 

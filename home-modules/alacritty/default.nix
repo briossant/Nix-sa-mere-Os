@@ -6,10 +6,6 @@
     enable = true;
 
     settings = {
-      import = [
-        pkgs.alacritty-theme.${if globalVars.darkmode then "gruvbox_dark"
-        else "gruvbox_light"}
-      ];
       env = {
         TERM = "xterm-256color";
       };

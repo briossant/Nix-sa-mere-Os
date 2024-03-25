@@ -3,7 +3,6 @@
 # make sure that x11 is enabled
 let
   mod = "Mod4";
-  thm = globalVars.theme;
 in
 {
   imports = [
@@ -77,47 +76,10 @@ in
           # I have a seperate file with definitions for i3status bar and it will
           # generate a config file for i3status to look at.
           statusCommand = "${pkgs.i3status}/bin/i3status";
-          colors =
-            {
-              background = thm.background.primary;
-              # separator = "#757575";
-
-              focusedWorkspace = {
-                # tricks to make it apear smaller
-                border = thm.background.primary;
-                background = thm.active.primary;
-                text = thm.active.text;
-              };
-              inactiveWorkspace = {
-                border = thm.unactive.primary;
-                background = thm.unactive.primary;
-                text = thm.unactive.text;
-              };
-              urgentWorkspace = {
-                border = thm.warning.primary;
-                background = thm.warning.secondary;
-                text = thm.warning.text;
-              };
-            };
         }
 
       ];
     };
-    extraConfig =
-      let
-        # class                 border  backgr. text    indicator child_border
-        mkColor = color: "${color.primary} ${color.primary} ${color.text} ${color.primary} ${color.primary}";
-      in
-      ''
-        client.focused ${mkColor thm.active}       
-        client.focused_inactive ${mkColor thm.unactive}       
-        client.placeholder  ${mkColor thm.good}        
-        client.urgent  ${mkColor thm.warning}        
-        client.unfocused ${mkColor thm.unactive}
-        client.background ${thm.background.primary}
-      '';
-
-
   };
 }
 
