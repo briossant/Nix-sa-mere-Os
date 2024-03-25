@@ -31,6 +31,7 @@ in
 
     # utils & shell things
     lxterminal
+    htop
     rlwrap
     feh
     git-lfs

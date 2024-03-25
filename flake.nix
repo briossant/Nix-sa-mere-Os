@@ -10,6 +10,8 @@
     prismlauncher.url = "github:nixos/nixpkgs/9957cd48326fe8dbd52fdc50dd2502307f188b0d";
 
     alacritty-theme.url = "github:alexghr/alacritty-theme.nix";
+
+    stylix.url = "github:danth/stylix";
   };
 
   outputs = inputs@{ nixpkgs, home-manager, ... }:
@@ -20,8 +22,7 @@
         defaultUser = "bcr";
         terminal = "alacritty";
         wm = "xfce+i3"; # options are the dir-name at -> sys-modules/wm/*
-        theme = (import ./themes/solarized.nix);
-        darkmode = false;
+        darkmode = true;
       };
     in
     let
@@ -31,6 +32,7 @@
             ./users # default user config, will load globalVars.defaultUser user
             ./hosts # default system config
             home-manager.nixosModules.home-manager # for home manager
+            inputs.stylix.nixosModules.stylix
 
             # overlays
             ({ config, pkgs, ... }: {

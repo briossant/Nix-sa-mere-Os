@@ -9,6 +9,9 @@
 
   networking.networkmanager.enable = true;
 
+  stylix.image = ../images/for-da-README.png;
+  stylix.autoEnable = false;
+
   nixpkgs.config.allowUnfree = true;
 
   programs.dconf.enable = true; # for pulse effect

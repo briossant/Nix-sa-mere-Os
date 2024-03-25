@@ -20,6 +20,7 @@
 
       # completion with coc
       coc-nvim
+      coc-java
       coc-rust-analyzer # rust
       coc-tabnine # ia suggestions
       coc-tsserver # js & ts
