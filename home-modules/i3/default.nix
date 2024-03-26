@@ -8,6 +8,7 @@ let
   urgent = base08;
   focused = base0A;
   unfocused = base03;
+  text = base05;
 in
 {
   imports = [
@@ -70,21 +71,23 @@ in
       window.border = 2;
 
       bars = [
-        ({
+        (config.lib.stylix.i3.bar // {
           position = "top";
 
           statusCommand = "${pkgs.i3status}/bin/i3status";
 
 
-          colors = {
+
+          colors = (config.lib.stylix.i3.bar.colors // {
             background = unfocused;
-            activeWorkspace = {
+            separator = text;
+            focusedWorkspace = {
               background = focused;
               border = unfocused;
+              text = text;
             };
-          };
-
-        } // config.lib.stylix.i3.bar)
+          });
+        })
 
       ];
 
