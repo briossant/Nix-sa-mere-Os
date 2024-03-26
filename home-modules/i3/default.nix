@@ -1,8 +1,13 @@
 { config, lib, pkgs, globalVars, ... }:
 
+with config.lib.stylix.colors.withHashtag;
+
 # make sure that x11 is enabled
 let
   mod = "Mod4";
+  urgent = base08;
+  focused = base0A;
+  unfocused = base03;
 in
 {
   imports = [
@@ -10,6 +15,7 @@ in
   ];
   xsession.enable = true;
 
+  # TODO: remove and use stylix transparency
   # compositor mainly to allow transparency of other programs
   services.picom = {
     enable = true;
@@ -64,21 +70,31 @@ in
       window.border = 2;
 
       bars = [
-        {
+        ({
           position = "top";
-          # fonts = {
-          # names = [ "nerdfonts" ];
-          # size = 20.0;
-          #};
 
-          # No need to specify path for settings file for i3status bar.
-          # By default i3status will look for config files at specific paths.
-          # I have a seperate file with definitions for i3status bar and it will
-          # generate a config file for i3status to look at.
           statusCommand = "${pkgs.i3status}/bin/i3status";
-        }
+
+
+          colors = {
+            background = unfocused;
+            activeWorkspace = {
+              background = focused;
+              border = unfocused;
+            };
+          };
+
+        } // config.lib.stylix.i3.bar)
 
       ];
+
+      colors =
+        {
+          focused.background = lib.mkForce focused;
+          urgent.background = lib.mkForce urgent;
+          focusedInactive.background = lib.mkForce unfocused;
+          unfocused.background = lib.mkForce unfocused;
+        };
     };
   };
 }

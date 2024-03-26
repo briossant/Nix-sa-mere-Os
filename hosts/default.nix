@@ -10,6 +10,9 @@
   networking.networkmanager.enable = true;
 
   stylix.image = globalVars.stylix-image;
+  stylix.base16Scheme =
+    "${pkgs.base16-schemes}/share/themes/${globalVars.stylix-scheme}";
+  stylix.polarity = if globalVars.darkmode then "dark" else "light";
 
   nixpkgs.config.allowUnfree = true;
 

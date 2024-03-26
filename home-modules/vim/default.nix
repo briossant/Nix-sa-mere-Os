@@ -45,8 +45,8 @@
 
         syntax on
 
-        set termguicolors
-        set background=${if dm then "dark" else "light"}
+        " set termguicolors
+        " set background=${if dm then "dark" else "light"}
 
         " colorscheme gruvbox
 

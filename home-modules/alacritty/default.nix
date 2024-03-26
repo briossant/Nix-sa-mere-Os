@@ -11,7 +11,7 @@
       };
       window = {
         title = "Abats-LA-CRITTYques.";
-        opacity = lib.mkDefault 0.85;
+        opacity = lib.mkForce 0.85;
       };
       scrolling = {
         history = 100000; # le MAX

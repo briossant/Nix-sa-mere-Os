@@ -22,6 +22,7 @@
         wm = "xfce+i3"; # options are the dir-name at -> sys-modules/wm/*
         darkmode = true;
         stylix-image = ./images/IMG_0278.JPG;
+        stylix-scheme = "gruvbox-light-medium.yaml";
       };
     in
     let
