@@ -9,7 +9,7 @@ let
   focused = base0B;
   background = base00;
   unfocused = base03;
-  text = base05;
+  text = base07;
 in
 {
   imports = [
@@ -80,8 +80,14 @@ in
           colors = (config.lib.stylix.i3.bar.colors // {
             background = background;
             separator = text;
+            statusline = text;
             focusedWorkspace = {
               background = focused;
+              border = background;
+              text = text;
+            };
+            inactiveWorkspace = {
+              background = background;
               border = background;
               text = text;
             };
@@ -97,6 +103,7 @@ in
           focused.border = lib.mkForce focused;
           focused.childBorder = lib.mkForce focused;
           focused.indicator = lib.mkForce focused;
+          focused.text = lib.mkForce text;
           urgent.background = lib.mkForce urgent;
           focusedInactive.background = lib.mkForce unfocused;
         };
@@ -107,7 +114,7 @@ in
     enable = true;
     general = {
       output_format = "i3bar";
-      colors = true;
+      colors = false;
       markup = "pango";
       interval = 5;
       color_good = base0C;
@@ -116,12 +123,6 @@ in
     };
 
     modules = {
-      load = {
-        position = 1;
-        settings = {
-          format = "<span background='${base08}'>  %5min Load </span>";
-        };
-      };
 
       /*"cpu_temperature 0" = {
         position = 2;
@@ -131,25 +132,31 @@ in
         };
       };*/
 
-      "disk /" = {
-        position = 3;
+      memory = {
+        position = 4;
         settings = {
-          format = "<span background='${base0A}'>  %free Free </span>";
+          format = "<span background='${base0B}'> RAM: %used used, rem %available </span>";
+          format_degraded = "<span background='${base08}'> RAM < %available </span>";
+          threshold_degraded = "2G";
         };
       };
 
-      "disk /home" = {
-        position = 4;
+      load = {
+        enable = false;
+      };
+
+      "disk /" = {
+        position = 3;
         settings = {
-          format = "<span background='${base0B}'>  %free Free </span>";
+          format = "<span background='${base0A}'> DISK: %free Free </span>";
         };
       };
 
       "ethernet _first_" = {
         position = 5;
         settings = {
-          format_up = "<span background='${base0C}'> E: %ip (%speed) </span>";
-          format_down = "<span background='${base0C}'> E: Disconnected </span>";
+          format_up = "<span> E: %ip (%speed) </span>";
+          format_down = "<span> E: N/A </span>";
         };
       };
 
@@ -157,15 +164,15 @@ in
         position = 6;
         settings = {
           format_up = "<span> W: (%quality at %essid, %bitrate) %ip </span>";
-          format_down = "<span> W: Disconnected </span>";
+          format_down = "<span> W: N/A </span>";
         };
       };
 
       "volume master" = {
         position = 7;
         settings = {
-          format = "<span background='${base0D}'> Vol %volume </span>";
-          format_muted = "<span background='${base0D}'> Muted </span>";
+          format = "<span background='${base0C}'> 🎵%volume </span>";
+          format_muted = "<span background='${base0C}'> 🔇 Muted </span>";
           device = "default";
           mixer = "Master";
           mixer_idx = 0;
@@ -176,7 +183,7 @@ in
         position = 8;
         settings = {
           last_full_capacity = true;
-          format = "<span background='${base0F}'>  %status %percentage </span>";
+          format = "<span background='${base0D}'> %status %percentage </span>";
           format_down = "No Battery";
           status_chr = "⚡ CHR";
           status_bat = "🔋 BAT";
@@ -191,7 +198,6 @@ in
         position = 9;
         settings = {
           format = "<span background='${base0E}'> %Y-%m-%d %H:%M:%S %Z </span>";
-          hide_if_equals_localtime = true;
         };
       };
 
@@ -200,6 +206,7 @@ in
         settings = {
           format = "<span background='${base0F}'> %Y-%m-%d %H:%M:%S %Z </span>";
           timezone = "Europe/Paris";
+          hide_if_equals_localtime = true;
         };
       };
     };
