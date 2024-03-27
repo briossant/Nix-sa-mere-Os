@@ -119,60 +119,60 @@ in
       load = {
         position = 1;
         settings = {
-          format = "<span background='#f59335'>  %5min Load </span>";
+          format = "<span background='${base08}'>  %5min Load </span>";
         };
       };
 
-      "cpu_temperature 0" = {
+      /*"cpu_temperature 0" = {
         position = 2;
         settings = {
           format = "<span background='#bf616a'>  %degrees °C </span>";
           path = "/sys/class/thermal/thermal_zone0/temp";
         };
-      };
+      };*/
 
       "disk /" = {
         position = 3;
         settings = {
-          format = "<span background='#fec7cd'>  %free Free </span>";
+          format = "<span background='${base0A}'>  %free Free </span>";
         };
       };
 
       "disk /home" = {
         position = 4;
         settings = {
-          format = "<span background='#a1d569'>  %free Free </span>";
+          format = "<span background='${base0B}'>  %free Free </span>";
         };
       };
 
-      "ethernet eth0" = {
+      "ethernet _first_" = {
         position = 5;
         settings = {
-          format_up = "<span background='#88c0d0'> E: %ip (%speed) </span>";
-          format_down = "<span background='#88c0d0'> E: Disconnected </span>";
+          format_up = "<span background='${base0C}'> E: %ip (%speed) </span>";
+          format_down = "<span background='${base0C}'> E: Disconnected </span>";
         };
       };
 
-      "wireless wlan0" = {
+      "wireless _first_" = {
         position = 6;
         settings = {
-          format_up = "<span background='#b48ead'> W: (%quality at %essid, %bitrate) %ip </span>";
-          format_down = "<span background='#b48ead'> W: Disconnected </span>";
+          format_up = "<span> W: (%quality at %essid, %bitrate) %ip </span>";
+          format_down = "<span> W: Disconnected </span>";
         };
       };
 
       "volume master" = {
         position = 7;
         settings = {
-          format = "<span background='#ebcb8b'> Vol %volume </span>";
-          format_muted = "<span background='#ebcb8b'> Muted </span>";
+          format = "<span background='${base0D}'> Vol %volume </span>";
+          format_muted = "<span background='${base0D}'> Muted </span>";
           device = "default";
           mixer = "Master";
           mixer_idx = 0;
         };
       };
 
-      "battery 0" = {
+      "battery all" = {
         position = 8;
         settings = {
           last_full_capacity = true;
@@ -190,7 +190,7 @@ in
       "tztime local" = {
         position = 9;
         settings = {
-          format = "<span background='#81a1c1'> %Y-%m-%d %H:%M:%S %Z </span>";
+          format = "<span background='${base0E}'> %Y-%m-%d %H:%M:%S %Z </span>";
           hide_if_equals_localtime = true;
         };
       };
@@ -198,7 +198,7 @@ in
       "tztime paris" = {
         position = 10;
         settings = {
-          format = "<span background='#81a1c1'> %Y-%m-%d %H:%M:%S %Z </span>";
+          format = "<span background='${base0F}'> %Y-%m-%d %H:%M:%S %Z </span>";
           timezone = "Europe/Paris";
         };
       };
