@@ -30,19 +30,20 @@ in
     firefox
 
     # utils & shell things
-    lxterminal
-    htop
+    lxterminal # secondary terminal
+    btop # more complete top
     rlwrap
     feh
     git-lfs
     unzip
-    brightnessctl
-    xsel
+    brightnessctl # for screen brightness 
+    xsel # mostly to copy file to clipboard
+    bat # cool cat clone
 
     # desktop
     cinnamon.pix
     cura
-    shutter
+    shutter # screenshots
     libreoffice
     lmms
     vlc

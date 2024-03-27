@@ -10,6 +10,11 @@
     prismlauncher.url = "github:nixos/nixpkgs/9957cd48326fe8dbd52fdc50dd2502307f188b0d";
 
     stylix.url = "github:danth/stylix";
+
+    hy3 = {
+      url = "github:outfoxxed/hy3";
+    };
+
   };
 
   outputs = inputs@{ nixpkgs, home-manager, ... }:
@@ -22,7 +27,7 @@
         wm = "hyprland"; # options are the dir-name at -> sys-modules/wm/*
         darkmode = false;
         stylix-image = ./images/IMG_0278.JPG;
-        stylix-scheme = "gruvbox-light-medium.yaml"; # see https://tinted-theming.github.io/base16-gallery/
+        stylix-scheme = "nord-light.yaml"; # see https://tinted-theming.github.io/base16-gallery/
       };
     in
     let

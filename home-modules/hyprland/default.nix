@@ -1,16 +1,26 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   wayland.windowManager.hyprland = {
     enable = true;
+
+    plugins = [ inputs.hy3.packages.x86_64-linux.hy3 ];
+
     settings = {
       "$mod" = "SUPER";
       bind =
         [
-          "$mod, ENTER, exec, alacritty"
-          "$mod, m, exec, firefox"
+          "$mod, RETURN, exec, alacritty"
+          "$mod, M, exec, firefox"
           "$mod SHIFT, X, exec, systemctl suspend"
-          ", Print, exec, grimblast copy area"
+          "$mod SHIFT,Q,killactive"
+
+          "$mod,H,movefocus,l"
+          "$mod,L,movefocus,r"
+          "$mod,K,movefocus,u"
+          "$mod,J,movefocus,d"
+
+
         ]
         ++ (
           # workspaces
