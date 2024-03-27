@@ -24,10 +24,10 @@
         system = "x86_64-linux";
         defaultUser = "bcr";
         terminal = "alacritty";
-        wm = "hyprland"; # options are the dir-name at -> sys-modules/wm/*
+        wm = "xfce+i3"; # options are the dir-name at -> sys-modules/wm/*
         darkmode = false;
         stylix-image = ./images/IMG_0278.JPG;
-        stylix-scheme = "nord-light.yaml"; # see https://tinted-theming.github.io/base16-gallery/
+        stylix-scheme = "atelier-estuary-light.yaml"; # see https://tinted-theming.github.io/base16-gallery/
       };
     in
     let

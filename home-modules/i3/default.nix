@@ -6,7 +6,8 @@ with config.lib.stylix.colors.withHashtag;
 let
   mod = "Mod4";
   urgent = base08;
-  focused = base0A;
+  focused = base0B;
+  background = base00;
   unfocused = base03;
   text = base05;
 in
@@ -76,10 +77,8 @@ in
 
           statusCommand = "${pkgs.i3status}/bin/i3status";
 
-
-
           colors = (config.lib.stylix.i3.bar.colors // {
-            background = unfocused;
+            background = background;
             separator = text;
             focusedWorkspace = {
               background = focused;
@@ -87,6 +86,9 @@ in
               text = text;
             };
           });
+
+          extraConfig = (builtins.readFile ./i3status-config);
+
         })
 
       ];
@@ -94,9 +96,11 @@ in
       colors =
         {
           focused.background = lib.mkForce focused;
+          focused.border = lib.mkForce focused;
+          focused.childBorder = lib.mkForce focused;
+          focused.indicator = lib.mkForce focused;
           urgent.background = lib.mkForce urgent;
           focusedInactive.background = lib.mkForce unfocused;
-          unfocused.background = lib.mkForce unfocused;
         };
     };
   };

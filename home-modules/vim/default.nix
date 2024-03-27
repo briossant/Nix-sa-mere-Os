@@ -40,13 +40,13 @@
         let g:airline#extensions#tabline#enabled = 1
         let g:airline_powerline_fonts = 1
 
-        let g:airline_theme=${if dm then "'base16_eighties'"
-          else "'solarized'\nlet g:airline_solarized_bg='dark'"}
+        let g:airline_theme=${if dm then "'base16_atelier_estuary_light'"
+          else "'base16_atelier_estuary'"}
 
         syntax on
 
         " set termguicolors
-        " set background=${if dm then "dark" else "light"}
+        set background=${if dm then "dark" else "light"}
 
         " colorscheme gruvbox
 
