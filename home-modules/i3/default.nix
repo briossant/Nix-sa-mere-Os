@@ -82,12 +82,10 @@ in
             separator = text;
             focusedWorkspace = {
               background = focused;
-              border = unfocused;
+              border = background;
               text = text;
             };
           });
-
-          extraConfig = (builtins.readFile ./i3status-config);
 
         })
 
@@ -102,6 +100,108 @@ in
           urgent.background = lib.mkForce urgent;
           focusedInactive.background = lib.mkForce unfocused;
         };
+    };
+  };
+
+  programs.i3status = {
+    enable = true;
+    general = {
+      output_format = "i3bar";
+      colors = true;
+      markup = "pango";
+      interval = 5;
+      color_good = base0C;
+      color_degraded = base0A;
+      color_bad = base08;
+    };
+
+    modules = {
+      load = {
+        position = 1;
+        settings = {
+          format = "<span background='#f59335'>  %5min Load </span>";
+        };
+      };
+
+      "cpu_temperature 0" = {
+        position = 2;
+        settings = {
+          format = "<span background='#bf616a'>  %degrees °C </span>";
+          path = "/sys/class/thermal/thermal_zone0/temp";
+        };
+      };
+
+      "disk /" = {
+        position = 3;
+        settings = {
+          format = "<span background='#fec7cd'>  %free Free </span>";
+        };
+      };
+
+      "disk /home" = {
+        position = 4;
+        settings = {
+          format = "<span background='#a1d569'>  %free Free </span>";
+        };
+      };
+
+      "ethernet eth0" = {
+        position = 5;
+        settings = {
+          format_up = "<span background='#88c0d0'> E: %ip (%speed) </span>";
+          format_down = "<span background='#88c0d0'> E: Disconnected </span>";
+        };
+      };
+
+      "wireless wlan0" = {
+        position = 6;
+        settings = {
+          format_up = "<span background='#b48ead'> W: (%quality at %essid, %bitrate) %ip </span>";
+          format_down = "<span background='#b48ead'> W: Disconnected </span>";
+        };
+      };
+
+      "volume master" = {
+        position = 7;
+        settings = {
+          format = "<span background='#ebcb8b'> Vol %volume </span>";
+          format_muted = "<span background='#ebcb8b'> Muted </span>";
+          device = "default";
+          mixer = "Master";
+          mixer_idx = 0;
+        };
+      };
+
+      "battery 0" = {
+        position = 8;
+        settings = {
+          last_full_capacity = true;
+          format = "<span background='${base0F}'>  %status %percentage </span>";
+          format_down = "No Battery";
+          status_chr = "⚡ CHR";
+          status_bat = "🔋 BAT";
+          status_unk = "? UNK";
+          status_full = "☻ FULL";
+          path = "/sys/class/power_supply/BAT%d/uevent";
+          low_threshold = 20;
+        };
+      };
+
+      "tztime local" = {
+        position = 9;
+        settings = {
+          format = "<span background='#81a1c1'> %Y-%m-%d %H:%M:%S %Z </span>";
+          hide_if_equals_localtime = true;
+        };
+      };
+
+      "tztime paris" = {
+        position = 10;
+        settings = {
+          format = "<span background='#81a1c1'> %Y-%m-%d %H:%M:%S %Z </span>";
+          timezone = "Europe/Paris";
+        };
+      };
     };
   };
 }
