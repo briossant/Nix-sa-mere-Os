@@ -47,6 +47,7 @@ in
     libreoffice
     lmms
     vlc
+    pureref
 
     # ia
     ollama
