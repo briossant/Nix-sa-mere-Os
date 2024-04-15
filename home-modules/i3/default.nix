@@ -62,6 +62,11 @@ in
           always = true;
           notification = false;
         }
+        {
+          command = "systemctl --user start wallpaper-changer.service";
+          always = true;
+          notification = false;
+        }
       ];
 
       gaps = {

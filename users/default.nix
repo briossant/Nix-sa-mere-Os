@@ -15,7 +15,7 @@
   users.users.${globalVars.defaultUser} = {
     isNormalUser = true;
     description = "the default user";
-    extraGroups = [ "audio" "networkmanager" "wheel" ];
+    extraGroups = [ "audio" "docker" "networkmanager" "wheel" ];
     initialPassword = "42";
   };
 

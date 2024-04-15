@@ -14,6 +14,8 @@
     "${pkgs.base16-schemes}/share/themes/${globalVars.stylix-scheme}";
   stylix.polarity = if globalVars.darkmode then "dark" else "light";
 
+  virtualisation.docker.enable = true;
+
   nixpkgs.config.allowUnfree = true;
 
   programs.dconf.enable = true; # for pulse effect
