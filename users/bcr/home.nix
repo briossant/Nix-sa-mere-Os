@@ -48,6 +48,7 @@ in
     lmms
     vlc
     pureref
+    darktable
 
     # ia
     ollama
@@ -64,6 +65,11 @@ in
 
     # javascript
     nodejs
+    jetbrains.webstorm
+
+    # c# .net
+    dotnet-sdk_8
+    jetbrains.rider
 
     # ocaml
     ocaml

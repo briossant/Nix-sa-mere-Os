@@ -1,10 +1,10 @@
 { pkgs, ... }:
 
 {
-  services.pulseeffects.enable = true;
+  #services.pulseeffects.enable = true;
 
   home.packages = with pkgs; [
-    pulsemixer # cli mixer 
+    #  pulsemixer # cli mixer 
     pavucontrol # gui audio device manager
   ];
 
